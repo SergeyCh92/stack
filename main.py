@@ -60,7 +60,15 @@ def check_str(data):
 
 start = True
 while start:
+    end = False
     my_str = input('Введите строку, содержащую только следующие символы: "({[]})":\n')
+    for i in my_str:
+        if i not in '({[]})':
+            end = True
+            print('Вы ввели недопустимый символ. Повторите ввод.')
+            break
+    if end:
+        continue
     my_stack = Stack()
     check_str(my_str)
     answer = input('Желаете продолжить (да/нет)?\n')
